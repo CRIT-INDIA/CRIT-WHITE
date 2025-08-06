@@ -1,0 +1,46 @@
+{
+    "products": [
+      {
+        "name": "SAP S/4HANA",
+        "slug": "sap-s4hana-products",
+        "meta_title": "SAP S/4HANA Implementation Services | Intelligent ERP",
+        "seo_description": "Discover our end-to-end SAP S/4HANA services, including implementation, migration, and support. Enable real-time analytics, streamlined operations, and digital innovation.",
+        "on_page_copy": "SAP S/4HANA is SAP\u2019s next-generation intelligent ERP suite built on the in-memory SAP HANA platform. Connecting Roots helps organizations implement and migrate to SAP S/4HANA to optimize finance, supply chain, manufacturing, and more\u2014ensuring real-time data access and faster decision-making."
+      },
+      {
+        "name": "SAP Ariba",
+        "slug": "sap-ariba-products",
+        "meta_title": "SAP Ariba Solutions | Digital Procurement & Supplier Management",
+        "seo_description": "Automate your procurement and supplier collaboration with SAP Ariba. We offer seamless implementation, integration, and support services.",
+        "on_page_copy": "SAP Ariba simplifies procurement processes by connecting buyers and suppliers on a single platform. At Connecting Roots, we enable digital procurement transformation through Ariba implementation, integration with SAP S/4HANA, and guided supplier onboarding to drive efficiency and transparency."
+      },
+      {
+        "name": "SAP SuccessFactors",
+        "slug": "sap-successfactors-products",
+        "meta_title": "SAP SuccessFactors Consulting | HCM & Talent Management",
+        "seo_description": "Improve your HR operations with SAP SuccessFactors. We offer implementation and support for talent acquisition, payroll, learning, and performance management.",
+        "on_page_copy": "SAP SuccessFactors is a leading cloud-based Human Capital Management (HCM) suite. Connecting Roots helps enterprises implement SuccessFactors to digitize HR operations\u2014from recruitment and onboarding to performance and learning\u2014empowering a future-ready workforce."
+      },
+      {
+        "name": "SAP Hybris (SAP Commerce Cloud)",
+        "slug": "sap-hybris-products",
+        "meta_title": "SAP Hybris (Commerce Cloud) Services | eCommerce Implementation Experts",
+        "seo_description": "Build and scale your digital commerce with SAP Hybris. We help businesses deliver personalized customer experiences across all channels.",
+        "on_page_copy": "SAP Hybris (now SAP Commerce Cloud) is a robust platform for delivering unified, personalized digital commerce experiences. Connecting Roots offers Hybris implementation and customization to help B2B and B2C businesses manage omnichannel engagement effectively."
+      },
+      {
+        "name": "SAP BusinessObjects",
+        "slug": "sap-businessobjects-products",
+        "meta_title": "SAP BusinessObjects BI Services | Reporting & Analytics Solutions",
+        "seo_description": "Get real-time business intelligence and reporting with SAP BusinessObjects. Explore our implementation and dashboard development services.",
+        "on_page_copy": "SAP BusinessObjects is a powerful business intelligence suite that enables organizations to transform data into actionable insights. Connecting Roots provides full-cycle BusinessObjects consulting, dashboard development, and integration with core ERP systems for data-driven decision-making."
+      },
+      {
+        "name": "SAP Concur",
+        "slug": "sap-concur-products",
+        "meta_title": "SAP Concur Integration Services | Travel & Expense Automation",
+        "seo_description": "Automate and manage travel and expense processes with SAP Concur. We help businesses streamline compliance and cost control.",
+        "on_page_copy": "SAP Concur automates travel, expense, and invoice management, giving companies better visibility into spending. Connecting Roots supports SAP Concur deployment and integration to help finance teams improve accuracy, reduce fraud, and ensure policy compliance."
+      }
+    ]
+  }
