@@ -320,30 +320,17 @@ export default function CritIndiaCtaForm({ onClose }) {
     if (onClose) onClose();
   };
 
+
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('=== FORM SUBMISSION START ===');
-    console.log('Current formData:', formData);
-    console.log('FormData keys:', Object.keys(formData));
-    console.log('FormData values:', Object.values(formData));
-    
+
     const validationErrors = validate();
-    console.log('Validation errors:', validationErrors);
-    console.log('Validation errors count:', Object.keys(validationErrors).length);
-    
-    // Temporarily bypass validation for testing
-    console.log('BYPASSING VALIDATION FOR TESTING');
-    /*
     if (Object.keys(validationErrors).length) {
-      console.log('Validation failed, not submitting to backend');
-      console.log('Failed fields:', Object.keys(validationErrors));
       setErrors(validationErrors);
       return;
     }
-    */
-    
-    console.log('Validation passed, preparing to send to backend');
-    
+
     try {
       const submitData = {
         name: formData.name,
@@ -352,34 +339,32 @@ export default function CritIndiaCtaForm({ onClose }) {
         phone: formData.phone,
         countryCode: formData.countryCode,
         service: formData.service,
-        message: formData.message
+        message: formData.message,
       };
-      
-      console.log('Data being sent to backend:', submitData);
-      console.log('JSON stringified data:', JSON.stringify(submitData));
-      console.log('About to make fetch request...');
-      
-      const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/cta/submit', {
+
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cta/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(submitData)
+        body: JSON.stringify(submitData),
       });
-      
-      console.log('Response status:', response.status);
-      console.log('Response headers:', response.headers);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('API error:', response.status, errorText);
+        alert(`Form submission failed: ${response.status} ${errorText}`);
+        return;
+      }
+
       const result = await response.json();
-      console.log('Response data:', result);
-      
+
       if (result.success) {
-        console.log('Form submitted successfully:', result);
         setSubmitted(true);
         setTimeout(() => {
           handleClose();
         }, 3000);
       } else {
-        console.error('Form submission failed:', result);
         alert('Form submission failed. Please try again.');
       }
     } catch (error) {
@@ -391,12 +376,13 @@ export default function CritIndiaCtaForm({ onClose }) {
   if (!visible) return null;
 
   const currentCountry = getCurrentCountry();
+
   const phoneInputClass = `w-full px-3 py-2 rounded-lg border bg-white text-gray-900 placeholder-gray-500 focus:outline-none transition-all duration-200 text-sm shadow-sm ${
-    phoneValidationState === 'valid' 
-      ? 'border-green-500 focus:border-green-600 focus:ring-2 focus:ring-green-200' 
-      : phoneValidationState === 'invalid' 
-        ? 'border-red-500 focus:border-red-600 focus:ring-2 focus:ring-red-200' 
-        : 'border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-100'
+    phoneValidationState === 'valid'
+      ? 'border-green-500 focus:border-green-600 focus:ring-2 focus:ring-green-200'
+      : phoneValidationState === 'invalid'
+      ? 'border-red-500 focus:border-red-600 focus:ring-2 focus:ring-red-200'
+      : 'border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-100'
   }`;
 
   return (
