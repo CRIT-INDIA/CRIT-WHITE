@@ -78,7 +78,7 @@ const ConnectWithUs = () => {
         <div className="text-center mb-6 sm:mb-8 pt-6 sm:pt-8">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 inline-block relative">
             <span className="text-black">Follow </span>
-            <span className="text-red-500">Our Socials</span>
+            <span className="text-red-500">Our Social</span>
             <svg className="mx-auto my-0" style={{marginTop: '-4px'}} width="160" height="18" viewBox="0 0 220 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 18 Q 110 8, 215 14" stroke="#ffd700" strokeWidth="4" strokeLinecap="round" fill="none"/>
               <path d="M15 21 Q 120 15, 200 18" stroke="#ffd700" strokeWidth="2" strokeLinecap="round" fill="none"/>
