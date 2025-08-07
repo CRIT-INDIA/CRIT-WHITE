@@ -7,8 +7,7 @@ router.post('/submit', async (req, res) => {
   try {
     console.log('=== CTA FORM RECEIVED ===');
     console.log('Request body:', req.body);
-    console.log('Request headers:', req.headers);
-    
+
     const {
       name,
       email,
@@ -18,18 +17,17 @@ router.post('/submit', async (req, res) => {
       service,
       message
     } = req.body;
-    
-    console.log('Extracted fields:');
-    console.log('- name:', name);
-    console.log('- email:', email);
-    console.log('- company:', company);
-    console.log('- phone:', phone);
-    console.log('- countryCode:', countryCode);
-    console.log('- service:', service);
-    console.log('- message:', message);
 
-    // Create new CTA entry
-    const cta = new Cta({
+    // Validation check (optional, can be improved or use a validation library)
+    if (!name || !email || !message) {
+      return res.status(400).json({
+        success: false,
+        message: 'Name, email, and message are required fields.'
+      });
+    }
+
+    // Create new CTA document
+    const newCtaEntry = new Cta({
       name,
       email,
       company,
@@ -39,8 +37,8 @@ router.post('/submit', async (req, res) => {
       message
     });
 
-    // Save to database
-    const savedCta = await cta.save();
+    // Save to MongoDB
+    const savedCta = await newCtaEntry.save();
 
     res.status(201).json({
       success: true,
@@ -50,7 +48,7 @@ router.post('/submit', async (req, res) => {
 
   } catch (error) {
     console.error('CTA form submission error:', error);
-    
+
     if (error.name === 'ValidationError') {
       const errors = Object.values(error.errors).map(err => err.message);
       return res.status(400).json({
@@ -67,7 +65,7 @@ router.post('/submit', async (req, res) => {
   }
 });
 
-// GET - Get all CTA submissions (admin)
+// GET - Get all CTA submissions (for admin)
 router.get('/all', async (req, res) => {
   try {
     const ctaSubmissions = await Cta.find().sort({ submittedAt: -1 });
@@ -76,6 +74,7 @@ router.get('/all', async (req, res) => {
       data: ctaSubmissions
     });
   } catch (error) {
+    console.error('Error fetching CTA submissions:', error);
     res.status(500).json({
       success: false,
       message: 'Error fetching CTA submissions'
@@ -83,17 +82,20 @@ router.get('/all', async (req, res) => {
   }
 });
 
-// PUT - Update CTA status (admin)
+// PUT - Update CTA status (for admin)
 router.put('/:id/status', async (req, res) => {
   try {
     const { status } = req.body;
-    const cta = await Cta.findByIdAndUpdate(
+
+    // Optional: You can validate 'status' here if needed (e.g. must be within certain enum)
+
+    const updatedCta = await Cta.findByIdAndUpdate(
       req.params.id,
       { status },
       { new: true }
     );
-    
-    if (!cta) {
+
+    if (!updatedCta) {
       return res.status(404).json({
         success: false,
         message: 'CTA submission not found'
@@ -102,9 +104,10 @@ router.put('/:id/status', async (req, res) => {
 
     res.json({
       success: true,
-      data: cta
+      data: updatedCta
     });
   } catch (error) {
+    console.error('Error updating CTA status:', error);
     res.status(500).json({
       success: false,
       message: 'Error updating CTA status'
@@ -112,4 +115,4 @@ router.put('/:id/status', async (req, res) => {
   }
 });
 
-module.exports = router; 
+module.exports = router;

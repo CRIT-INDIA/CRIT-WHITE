@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { X, CheckCircle, Users, Award, Globe } from 'lucide-react';
 import ModalPortal from './ModalPortal';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+console.log("API URL:", API_URL);
 
 const countryOptions = [
   { 
@@ -342,13 +345,11 @@ export default function CritIndiaCtaForm({ onClose }) {
         message: formData.message,
       };
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cta/submit`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(submitData),
-      });
+      const response = await fetch(`${API_URL}/api/cta/submit`, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' }
+});
 
       if (!response.ok) {
         const errorText = await response.text();
