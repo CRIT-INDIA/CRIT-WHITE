@@ -3,6 +3,20 @@
 import { useParams } from 'next/navigation';
 import ServiceBlock from '@/app/components/ui/ServiceBlock';
 
+export async function generateStaticParams() {
+  return [
+    { service: 'implementation' },
+    { service: 'rollout' },
+    { service: 'support' },
+    { service: 'upgrade' },
+    { service: 'integration' },
+    { service: 'migration' },
+    { service: 'automation' },
+    { service: 'testing' }
+  ];
+}
+
+
 export default function ServicePage() {
   const { service } = useParams();
   

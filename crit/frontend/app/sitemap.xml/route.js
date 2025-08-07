@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 export async function GET() {
   const baseUrl = 'https://crit-4hwi.vercel.app';
   const today = new Date().toISOString();
