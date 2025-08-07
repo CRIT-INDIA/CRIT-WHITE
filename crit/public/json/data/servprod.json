@@ -1,0 +1,90 @@
+{
+  "services": [
+    {
+      "title": "SAP Implementation Services",
+      "description": "Professional sap implementation services designed to optimize your business processes and maximize ROI.",
+      "link": "/services/implementation",
+      "icon": "🚀"
+    },
+    {
+      "title": "SAP Rollout  Services",
+      "description": "Professional sap Rollout  services designed to optimize your business processes and maximize ROI.",
+      "link": "/services/Rollout ",
+      "icon": "🗂️"
+    },
+    {
+      "title": "SAP Support Services",
+      "description": "Professional sap support services designed to optimize your business processes and maximize ROI.",
+      "link": "/services/support",
+      "icon": "🎧"
+    },
+    {
+      "title": "SAP Upgrade Services",
+      "description": "Professional sap upgrade services designed to optimize your business processes and maximize ROI.",
+      "link": "/services/upgrade",
+      "icon": "⏫"
+    },
+    {
+      "title": "SAP Integration Services",
+      "description": "Professional sap integration services designed to optimize your business processes and maximize ROI.",
+      "link": "/services/integration",
+      "icon": "🧩"
+    },
+    {
+      "title": "SAP Migration Services",
+      "description": "Professional sap migration services designed to optimize your business processes and maximize ROI.",
+      "link": "/services/migration",
+      "icon": "🗃️"
+    },
+    {
+      "title": "SAP Automation Services",
+      "description": "Professional sap automation services designed to optimize your business processes and maximize ROI.",
+      "link": "/services/automation",
+      "icon": "🤖"
+    },
+    {
+      "title": "SAP Testing Services",
+      "description": "Professional sap testing services designed to optimize your business processes and maximize ROI.",
+      "link": "/services/testing",
+      "icon": "🧪"
+    }
+  ],
+  "products": [
+    {
+      "title": "SAP H/4HANA",
+      "description": "",
+      "link": "/products/hana",
+      "icon": "📦"
+    },
+    {
+      "title": "SAP ARIBA",
+      "description": "Cloud-based procurement and supply chain solutions for efficient supplier management.",
+      "link": "/products/ariba",
+      "icon": "🤝"
+    },
+    {
+      "title": "SAP Success Factors",
+      "description": "Human capital management solution for HR processes and employee experience.",
+      "link": "/products/success-factors",
+      "icon": "👥"
+    },
+    {
+      "title": "SAP HYBRIS",
+      "description": "Commerce platform for creating personalized customer experiences across all channels.",
+      "link": "/products/hybris",
+      "icon": "🛒"
+    },
+    {
+      "title": "SAP Businesss Object",
+      "description": "Business intelligence platform for reporting, visualization, and core analytics.",
+      "link": "/products/business-object",
+      "icon": "📊"
+    },
+    {
+      "title": "SAP Concur",
+      "description": "Travel and expense management solution to streamline business spending.",
+      "link": "/products/concur",
+      "icon": "✈️"
+    }
+  ]
+}
