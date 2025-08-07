@@ -2,10 +2,17 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5000;
+const port = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || '*',  // or a specific domain like 'https://your-frontend.com'
+}));
+
 app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Backend is running');
+});
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running!' });
@@ -26,6 +33,6 @@ app.post('/api/career/submit', (req, res) => {
   res.json({ success: true, message: 'Career form received!' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-}); 
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
