@@ -71,6 +71,14 @@ const ContactForm = dynamic(() => import('./components/ui/ContactForm'), {
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
 
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/your-endpoint`)
+      .then(res => res.json())
+      .then(data => setData(data));
+  }, []);
+  
   useEffect(() => {
     setIsClient(true);
   }, []);
